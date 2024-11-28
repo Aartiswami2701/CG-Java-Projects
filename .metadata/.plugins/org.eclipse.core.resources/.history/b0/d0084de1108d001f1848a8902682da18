@@ -1,0 +1,8 @@
+package com.cg.Enumeration;
+
+public class Contact {
+	String name;
+	int PhoneNumber;
+	String Address;
+
+}

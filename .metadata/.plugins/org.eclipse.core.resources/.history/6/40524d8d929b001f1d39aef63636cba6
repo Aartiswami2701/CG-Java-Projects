@@ -1,0 +1,24 @@
+package mock;
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class EmployeeProcessor {
+	List<Employeee> processEmployees(List<Employeee> employees ){
+		List<Employeee> employees1=employees.stream()
+										   .distinct()
+										   .sorted((ref2,ref1)->ref1.name.compareTo( ref2.name))
+										   .collect(Collectors.toList());
+		return employees1;
+		
+	}
+	
+	
+	Map<String,List<Employeee>> groupBySalaryRange(List<Employeee> employees){
+		Map<String,List<Employeee>> m1= employees.stream()
+												 .collect(Collectors.groupingBy(Employeee.salary));
+		return m1;
+		
+	}
+}

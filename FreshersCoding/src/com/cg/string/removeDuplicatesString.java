@@ -1,0 +1,45 @@
+package com.cg.string;
+
+import java.util.LinkedHashSet;
+
+//import java.util.Scanner;
+import java.util.Set;
+
+//Write a method to remove duplicate characters from a given string.
+public class removeDuplicatesString {
+	public static String removeDuplicates(String input) {
+	    Set<Character> seen = new LinkedHashSet<>();
+	    for (char c : input.toCharArray()) {
+	        seen.add(c);
+	    }
+	    StringBuilder sb = new StringBuilder();
+	    for (char c : seen) {
+	        sb.append(c);
+	    }
+	    return sb.toString();
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String input = "aartai"; 
+        String result = removeDuplicates(input);
+        System.out.println("String after removing duplicates: " + result);
+		
+		
+		
+		
+		/*Scanner sc= new Scanner(System.in);
+		System.out.println("enter string : ");
+		String str= sc.nextLine();
+		char []arr= str.toCharArray();
+		StringBuilder sb= new StringBuilder();
+		for(int i=0;i<arr.length;i++) {
+			if(i==0 || arr[i]!=arr[i-1]) {
+				sb.append(arr[i]);
+			}
+		}
+		System.out.println(sb.toString());*/
+
+	}
+
+}

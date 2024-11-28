@@ -1,0 +1,53 @@
+package mock;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+public class UseEmployee {
+	public static void main(String args[]) {
+		List<Employeee> e= new ArrayList<>();
+		Employeee[] e1= new Employeee[10];
+		e1[0]=new Employeee("aarti",90000.0);
+		e1[1]=new Employeee("zzz",60000.0);
+		e1[2]=new Employeee("aaa",30000.0);
+		e1[3]=new Employeee("hhhh",50000.0);
+		e1[4]=new Employeee("sss",70000.0);
+		e1[5]=new Employeee("aaa",30000.0);
+		e1[6]=new Employeee("hhhh",50000.0);
+		e.add(e1[0]);
+		e.add(e1[1]);
+		e.add(e1[2]);
+		e.add(e1[3]);
+		e.add(e1[4]);
+		e.add(e1[5]);
+		e.add(e1[6]);
+		
+		List<Employeee> employees1=e.stream()
+				   .sorted((ref2,ref1)->ref1.name.compareTo( ref2.name))
+				   .distinct()
+				   .collect(Collectors.toList());
+		System.out.println(employees1);
+
+		
+	/*	Scanner sc= new Scanner(System.in);
+		while(true) {
+			System.out.println("Enter the choice ");
+			System.out.println("1. Add Employee : ");
+			System.out.println("2. Display Employee : ");
+		int ch=sc.nextInt();
+		switch(ch) {
+		case 1:
+			
+			break;
+		case 2:
+			toString();
+			break;
+			
+		}
+		
+		}*/
+		
+	}
+}

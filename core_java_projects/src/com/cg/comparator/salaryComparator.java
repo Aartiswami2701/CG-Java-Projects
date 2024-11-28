@@ -1,0 +1,25 @@
+package com.cg.comparator;
+
+import java.util.Collections;
+
+import java.util.Comparator;
+
+public class salaryComparator implements Comparator <Employee1>{
+	@Override
+	public int compare(Employee1 o1, Employee1 o2) {
+		// TODO Auto-generated method stub
+		
+		if(o1.salary==o2.salary) {
+			return 0;
+		}
+		else if(o1.salary>o2.salary) {
+			return 1;
+		}
+		else {
+			return -1;
+		}
+		
+		
+	}
+
+}

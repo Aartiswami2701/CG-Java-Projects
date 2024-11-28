@@ -1,0 +1,21 @@
+package mock;
+
+
+
+public class Employeee {
+	String name;
+	double salary;
+	public Employeee(String name, double salary) {
+		super();
+		this.name = name;
+		this.salary = salary;
+	}
+	@Override
+	public String toString() {
+		return "Employeee [name=" + name + ", salary=" + salary + "]";
+	}
+	
+
+	
+
+}

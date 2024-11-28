@@ -1,0 +1,22 @@
+package com.cg.exception;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class TryWithResources {
+
+    public static void main(String[] args) {
+        // Using try-with-resources to automatically close the resource
+        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\AASWAMI\\JAVA PROJECTS\\core_java_projects\\a.txt"))) {
+            String line;
+            // Read lines until the end of the file
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+            e.printStackTrace(); // Optional: For more detailed error information
+        }
+    }
+}

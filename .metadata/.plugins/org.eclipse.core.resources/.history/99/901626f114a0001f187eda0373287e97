@@ -1,0 +1,26 @@
+package com.cg.designpatterns;
+
+public class SingletonClassDemo {
+
+    // Static attribute to hold the instance
+    private static SingletonClassDemo instance;
+
+    // Private constructor to prevent instantiation
+    private SingletonClassDemo() {
+        // Private constructor to prevent direct instantiation
+    }
+
+    // Public method to provide access to the single instance
+    public static SingletonClassDemo getInstance() {
+        if (instance == null) {
+            // If no instance exists, create a new one
+            instance = new SingletonClassDemo();
+        }
+        return instance;
+    }
+
+    // A simple method to display a message
+    public void showMessage() {
+        System.out.println("Hello, Singleton Pattern!");
+    }
+}

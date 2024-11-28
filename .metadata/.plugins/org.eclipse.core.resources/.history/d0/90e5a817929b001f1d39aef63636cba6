@@ -1,0 +1,42 @@
+package mock;
+
+public class a {
+
+}
+//question3:
+//
+//• Class Variables:
+//
+//o List<String> names
+//
+//Class NameProcessor:
+//
+//• Implement the following methods for this class:
+//
+//o List<String> processNames(List<String> names): This method takes a list of names,
+//
+//removes duplicates, sorts them alphabetically, and converts them to uppercase.
+//
+//▪ Visibility: public
+//
+//▪ Return Type: List<String>
+//
+//o String findLongestName(List<String> names): This method takes a list of names and
+//
+//returns the longest name. If there are multiple names with the same length, return
+//
+//the first one encountered.
+//
+//▪ Visibility: public
+//
+//▪ Return Type: String
+//
+//Example Input:
+//
+//["Rohit", "Anita", "Suresh", "Rohit", "Priya", "anita", "Kumar"]
+//
+//Example Output:
+//
+//Processed Names: [ANITA, KUMAR, PRIYA, ROHIT, SURESH]
+//
+//Longest Name: SURESH

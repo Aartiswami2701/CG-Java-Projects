@@ -1,0 +1,12 @@
+package com.cg.Enumeration;
+
+public class ContactManager {
+	public static void main(String args[]) {
+	String email;
+	
+	public void addContact(String mail) {
+		
+	}
+	
+	}
+}

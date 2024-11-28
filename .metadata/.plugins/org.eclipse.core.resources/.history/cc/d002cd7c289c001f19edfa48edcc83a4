@@ -1,0 +1,60 @@
+package mock;
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+
+
+class Result {
+
+    /*
+     * Complete the 'getOptimalStringLength' function below.
+     *
+     * The function is expected to return a LONG_INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER countA
+     *  2. INTEGER countB
+     *  3. INTEGER maxA
+     *  4. INTEGER maxB
+     */
+
+    public static long getOptimalStringLength(int countA, int countB, int maxA, int maxB) {
+    // Write your code here
+    Long l;
+    return l;
+
+    }
+
+}
+
+public class bb {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int countA = Integer.parseInt(bufferedReader.readLine().trim());
+
+        int countB = Integer.parseInt(bufferedReader.readLine().trim());
+
+        int maxA = Integer.parseInt(bufferedReader.readLine().trim());
+
+        int maxB = Integer.parseInt(bufferedReader.readLine().trim());
+
+        long result = Result.getOptimalStringLength(countA, countB, maxA, maxB);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}

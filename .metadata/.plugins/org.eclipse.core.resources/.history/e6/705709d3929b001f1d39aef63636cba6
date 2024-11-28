@@ -1,0 +1,113 @@
+package mock;
+
+class ListNode {
+    int val;
+    ListNode next;
+
+    // Constructor
+    public ListNode(int val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+class LinkedListCycleDetection {
+
+    // Method to detect if a cycle exists and return the node where the cycle begins
+    public ListNode detectCycle(ListNode head) {
+        if (head == null || head.next == null) {
+            return null;  // No cycle if the list is empty or has only one node
+        }
+
+        ListNode slow = head;  // Slow pointer
+        ListNode fast = head;  // Fast pointer
+
+        // Step 1: Detect if a cycle exists
+        while (fast != null && fast.next != null) {
+            slow = slow.next;       // Move slow pointer one step
+            fast = fast.next.next;  // Move fast pointer two steps
+
+            if (slow == fast) {
+                // Cycle detected, now find the start of the cycle
+                ListNode cycleStart = head;  // Start from the head
+                while (cycleStart != slow) {
+                    cycleStart = cycleStart.next;  // Move one step at a time
+                    slow = slow.next;  // Move slow one step at a time
+                }
+                return cycleStart;  // The node where the cycle starts
+            }
+        }
+
+        return null;  // No cycle detected
+    }
+}
+
+public class LinkedList5 {
+    public static void main(String[] args) {
+        // Sample Input:
+        ListNode head = new ListNode(3);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(0);
+        head.next.next.next = new ListNode(-4);
+        head.next.next.next.next = head.next; // Creates a cycle here
+
+        LinkedListCycleDetection detector = new LinkedListCycleDetection();
+        ListNode cycleStart = detector.detectCycle(head);
+
+        if (cycleStart != null) {
+            System.out.println("Cycle starts at node with value: " + cycleStart.val);
+        } else {
+            System.out.println("No cycle detected.");
+        }
+    }
+}
+
+//Question 5:
+//
+//You are given a singly linked list where each node contains an integer value and a reference to the
+//
+//next node in the list. Implement a Java program to detect if the linked list contains a cycle. If a cycle
+//
+//is present, return the node where the cycle begins; otherwise, return null.
+//
+//Specifications:
+//
+//1. Class Definitions:
+//
+//Class ListNode:
+//
+//• Represents a node in the linked list with the following properties:
+//
+//o int val: Integer value stored in the node.
+//
+//o ListNode next: Reference to the next node in the list.
+//
+//Class LinkedListCycleDetection:
+//
+//• Implement the following method for this class:
+//
+//o ListNode detectCycle(ListNode head): Detects if there's a cycle in the linked list
+//
+//starting from head. If a cycle is detected, returns the node where the cycle begins;
+//
+//otherwise, returns null.
+//
+//▪ Visibility: public
+//
+//▪ Return Type: ListNode
+//
+//Sample Input
+//
+//ListNode head = new ListNode(3);
+//
+//head.next = new ListNode(2);
+//
+//head.next.next = new ListNode(0);
+//
+//head.next.next.next = new ListNode(-4);
+//
+//head.next.next.next.next = head.next;
+//
+//Sample Output
+//
+//Cycle starts at node with value:

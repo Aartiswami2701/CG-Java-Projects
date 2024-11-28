@@ -1,0 +1,7 @@
+package com.cg.designFacade;
+
+public class ShapeMaker {
+	private shape circle;
+	private shape rectangle;
+	private shape square;
+}

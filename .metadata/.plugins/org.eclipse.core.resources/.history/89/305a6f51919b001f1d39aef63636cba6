@@ -1,0 +1,51 @@
+package mock;
+//User-defined exception class for invalid temperature
+class TemperatureInvalidException extends Exception {
+ public TemperatureInvalidException(String message) {
+     super(message);
+ }
+}
+
+//Temperature class to hold the temperature value
+class Temperature {
+ String temperature; // This will hold the validation message
+}
+
+//TemperatureImplementation class to handle temperature validation
+class TemperatureImplementation {
+
+ // Method to validate the temperature and set the appropriate message
+ public String setTemperature(Temperature t, int temp) {
+     try {
+         // Check if the temperature is within the acceptable range
+         if (temp < -30 || temp > 50) {
+             // Throw a custom exception if the temperature is invalid
+             throw new TemperatureInvalidException("TemperatureInvalidException");
+         } else {
+             // Set the temperature to "Valid Temperature" if it's valid
+             t.temperature = "Valid Temperature";
+         }
+     } catch (TemperatureInvalidException e) {
+         // Handle the exception and set the temperature to "Invalid Temperature"
+         t.temperature = "Invalid Temperature";
+     }
+     return t.temperature;
+ }
+}
+
+//Main class to run the simulation and check temperatures
+public class WeatherSimulation {
+ public static void main(String[] args) {
+     TemperatureImplementation tempImp = new TemperatureImplementation();
+     Temperature tempObj = new Temperature();
+
+     // Sample input temperatures
+     int[] inputs = {20, -40, 60, -25, 45};
+
+     // Process each temperature and print the result
+     for (int inputTemp : inputs) {
+         System.out.println("Input Temperature: " + inputTemp + " => " + tempImp.setTemperature(tempObj, inputTemp));
+     }
+ }
+}
+

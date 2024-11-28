@@ -1,0 +1,5 @@
+package com.cg.testInterfaceISTANCEOF;
+
+public interface performanceEvaluation {
+	void evaluatePerformance();
+}

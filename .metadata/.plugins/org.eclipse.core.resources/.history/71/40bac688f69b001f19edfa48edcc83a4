@@ -1,0 +1,21 @@
+package com.cg.exception;
+//Write a program to demonstrate exception handling using try-with-resources to 
+//automatically close resources.
+import java.io.BufferedReader;
+
+import java.io.FileReader;
+import java.io.IOException;
+public class TryWithResources {
+
+	public static void main(String[] args) {
+		        try (BufferedReader br = new BufferedReader(new FileReader("a.txt"))) {
+		            System.out.println(br.readLine());
+		        } catch (IOException e) {
+		            System.out.println("Error: " + e.getMessage());
+		        }
+		    
+		}
+
+
+	}
+

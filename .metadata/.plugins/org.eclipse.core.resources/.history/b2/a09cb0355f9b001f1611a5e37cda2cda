@@ -1,0 +1,17 @@
+package mock;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class UseEmployee {
+	public static void main(String args[]) {
+		List<Employeee> e= new ArrayList<>();
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter name of Employee : ");
+		String name=sc.next();
+		System.out.println("Enter salary of Employee : ");
+		double salary=sc.nextDouble();
+		
+	}
+}

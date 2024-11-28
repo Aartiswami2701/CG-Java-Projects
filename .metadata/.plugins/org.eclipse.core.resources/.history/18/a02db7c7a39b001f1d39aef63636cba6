@@ -1,0 +1,224 @@
+package com.cg.java8.Stream;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+class UseEmployee {
+    public static void main(String args[]) {
+        Employee e = new Employee(111, "Aarti", "HR", 9900000,4,"female");
+        Employee e1 = new Employee(222, "Shubham", "Sales", 8900000,3,"male");
+        Employee e2 = new Employee(333, "Soum", "Marketing", 3400000,2,"male");
+        Employee e3 = new Employee(444, "Aditi", "HR", 9900000,5,"female");
+        Employee e4 = new Employee(555, "Manshree", "Sales", 8900000,4,"female");
+        Employee e5 = new Employee(666, "Abhishek", "Marketing", 3400000,3,"male");
+
+        List<Employee> emp = new ArrayList<>();
+        emp.add(e);
+        emp.add(e1);
+        emp.add(e2);
+        emp.add(e3);
+        emp.add(e4);
+        emp.add(e5);
+        
+       
+        //prints objects with hr dept
+        List<Employee> hrList = emp.stream()
+                                    .filter(x -> "HR".equals(x.getDepartment())) 
+                                    .collect(Collectors.toList());
+          hrList.forEach(System.out::println);
+        //prints all names of emp object
+      List<String> hrList1 = emp.stream()
+        						 .map(Employee::getName)
+     						     .collect(Collectors.toList());
+      hrList1.forEach(System.out::println);
+        //prints salary in ascending order
+      List<Double> hrlist2 =emp.stream()
+	    		   				.map(Employee::getSalary)
+	    		   				.sorted()
+	    		   				.collect(Collectors.toList());
+      hrlist2.forEach(System.out::println); 
+      //prints objects with salary in ascending order 
+       List<Employee> hrlist3 =emp.stream()
+        						.sorted((ref1,ref2)->Double.compare(ref1.getSalary(), ref2.getSalary()))
+        						.collect(Collectors.toList());
+        hrlist3.forEach(System.out::println);
+        
+      //prints objects with salary in descending order 
+      List<Employee> hrlist4 =emp.stream()
+        						.sorted((ref2,ref1)->Double.compare(ref1.getSalary(), ref2.getSalary()))
+        						.collect(Collectors.toList());
+        hrlist4.forEach(System.out::println);
+        
+        //display all employees
+      List<Employee> hrlist5 =emp.stream()
+							      .collect(Collectors.toList());
+        hrlist5.forEach(System.out::println);
+        
+        
+        //total salary of employees
+        Double hrlist6 =emp.stream()
+        					.map(Employee::getSalary)
+        					.reduce(0.0,Double::sum);
+        System.out.println(hrlist6);
+        
+        //printing all depts
+       /* List<String> hrlist =emp.stream()
+        						  .map(Employee::getDepartment)
+        						  .distinct()
+        						  .collect(Collectors.toList());
+        hrlist.forEach(System.out::println);*/
+        //top 3 employee print
+        /*List<Employee> hrlist =emp.stream()
+								  .limit(3)
+								  .collect(Collectors.toList());
+        hrlist.forEach(System.out::println);*/
+        
+        //display top 3 salaries
+        /*List<Employee> hrlist =emp.stream()
+				        			.sorted((ref2,ref1)->Double.compare(ref1.getSalary(), ref2.getSalary()))
+				        			.limit(3)
+				        			.collect(Collectors.toList());
+        hrlist.forEach(System.out::println);*/
+        
+        //skip first 2 records and display
+       /* List<Employee> hrlist =emp.stream()
+					    			.skip(2)
+					    			.collect(Collectors.toList());
+        hrlist.forEach(System.out::println);*/
+        
+        //display employeess anyone having sales dept 
+        boolean hrlist21 =emp.stream()
+    						.anyMatch((s)->"Sales".equals(s.getDepartment()));
+    		
+        System.out.println(hrlist21);
+        
+        //display all employeess does have sales dept
+        boolean hrlist22 =emp.stream()
+    						.allMatch((s)->"Sales".equals(s.getDepartment()));
+    		
+        System.out.println(hrlist22);
+        
+        //display all employeess does not have sales dept
+        boolean hrlist23 =emp.stream()
+    						.noneMatch((s)->"Sales".equals(s.getDepartment()));
+    		
+        System.out.println(hrlist23);
+        
+        
+      //find first sorted salary
+		double hrlist =emp.stream()
+								  .map(Employee::getSalary)
+								  .distinct()
+								  .sorted(Comparator.reverseOrder())
+								  .findFirst()
+								  .orElse(null);
+								  
+		System.out.println("Sorted first salary : "+hrlist);
+        
+        //find first object
+		Employee hr=emp.stream()
+						.findFirst()
+						.orElse(null);
+		System.out.println("First salary : "+hrlist);
+        
+        
+        //second highest salary
+		double hr1 =emp.stream()
+				  .map(Employee::getSalary)
+				  .distinct()
+				  .sorted(Comparator.reverseOrder())
+				  .skip(1)
+				  .findFirst()
+				  .orElse(null);
+				  
+		System.out.println("Sorted second highest salary : "+hr1);
+		
+		
+		
+        //highest paid employee
+      Optional<Employee> hrlist14 =emp.stream()
+				.max((ref1,ref2)->Double.compare(ref1.getSalary(), ref2.getSalary()));
+				
+		System.out.println("highest paid : "+hrlist14);
+		
+		//lowest paid employee
+	  Optional<Employee> hrlist15 =emp.stream()
+					.min((ref1,ref2)->Double.compare(ref1.getSalary(), ref2.getSalary()));	
+	  System.out.println("lowest paid : "+hrlist15);
+        
+		//salary rating
+	  //sort employee object by salary and rating and display all objects
+	  List<Employee> r1= emp.stream()
+							  .sorted(Comparator.comparing(Employee::getSalary))
+							  .sorted(Comparator.comparing(Employee::getRatings))
+							  .collect(Collectors.toList());
+	  r1.stream().forEach(System.out::println);
+	  
+	  //optional 
+	  Optional<String> o1= Optional.of("Hi");
+	  System.out.println(o1.isPresent());
+	  System.out.println(o1.get());
+	  
+	  Optional<String> o2= Optional.empty();
+	  System.out.println(o2.isPresent());
+			  
+	  //display female
+	  List<Employee> f1=emp.stream()
+			  .filter(x -> "female".equals(x.getGender())) 
+              .collect(Collectors.toList());
+	  System.out.println("Female: "+f1);
+	  
+	  //display male
+	  List<Employee> m1=emp.stream()
+			  .filter(x -> "male".equals(x.getGender())) 
+              .collect(Collectors.toList());
+	  System.out.println("male: "+m1);
+	  //highest salary among male and female
+	  double sal =emp.stream()
+			  .map(Employee::getSalary)
+			  .distinct()
+			  .sorted(Comparator.reverseOrder())
+			  .findFirst()
+			  .orElse(null);
+			  
+	System.out.println("Highest salary among male and female : "+sal);
+	
+	  //display highest salary of male
+	Optional<Employee> sal1 =emp.stream()
+			.filter(x -> "male".equals(x.getGender()))
+			.max((ref1,ref2)->Double.compare(ref1.getSalary(), ref2.getSalary()));
+	System.out.println("Highest salary among male : "+sal1);
+	
+	  //display highest salary of female
+	Optional<Employee> sal2 =emp.stream()
+			.filter(x -> "female".equals(x.getGender()))
+			.max((ref1,ref2)->Double.compare(ref1.getSalary(), ref2.getSalary()));
+	System.out.println("Highest salary among female : "+sal2);
+	
+	  //average of highest salary of male and female
+	double avg= ((sal1.get().getSalary()+sal2.get().getSalary())/2);
+	System.out.println("Average of highest salary of male and female :"+avg);
+	
+	//count of male and female
+	System.out.print("Count of male and female employees present in the organization:: \n");
+    Map<String, Long> noOfMaleAndFemaleEmployees = emp.stream()
+    												  .collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
+    System.out.println( noOfMaleAndFemaleEmployees);
+    System.out.println(" ");
+    
+    
+    System.out.println("Average salary by grouping by gender");
+    Map<String, Double> avgSalary = emp.stream()
+                                           .collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getSalary)));
+    System.out.println(avgSalary);
+    System.out.println(" ");
+    
+    
+				  
+    }
+}
+

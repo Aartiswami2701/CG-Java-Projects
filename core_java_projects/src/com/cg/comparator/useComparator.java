@@ -1,0 +1,48 @@
+package com.cg.comparator;
+
+import java.util.ArrayList;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Scanner;
+public class useComparator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<Employee1> ar=new ArrayList<>();
+		Employee1 emp1=new Employee1(2,"shubham",90000);
+		Employee1 emp2 =new Employee1(1,"Aarti",78888);
+		Employee1 emp3 =new Employee1(4,"yash",67488);
+		Employee1 emp4 =new Employee1(3,"som",18888);
+		ar.add(emp1);
+		ar.add(emp2);
+		ar.add(emp3);
+		ar.add(emp4);
+		
+		int ch;
+		System.out.println("Enter your choice to sort record : ");
+		System.out.println("1. SalaryComparator :");
+		System.out.println("2. NameComparator :");
+		Scanner sc= new Scanner(System.in);
+		ch= sc.nextInt();
+		sc.close();
+		
+		switch(ch){
+			case 1:
+				Collections.sort(ar, new salaryComparator());
+				break;
+				
+			case 2:
+				Collections.sort(ar,new nameComparator());
+				break;
+				
+			default:
+				System.out.println("invalid");
+		}
+		System.out.println(Collections.max(ar,new salaryComparator()));
+		for(Employee1 a:ar) {
+			System.out.println(a);
+		}
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Employee1.java&apos; to &apos;core_java_projects/src/com.cg.FileIOHandling&apos;&#x0D;&#x0A;- Original project: &apos;core_java_projects&apos;&#x0D;&#x0A;- Destination element: &apos;core_java_projects/src/com.cg.FileIOHandling&apos;&#x0D;&#x0A;- Original element: &apos;com.cg.inherit.Employee1.java&apos;" description="Copy compilation unit" destination="/src&lt;com.cg.FileIOHandling" element1="/src&lt;com.cg.inherit{Employee1.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1730095999402" units="1" version="1.0"/>
+</session>
